@@ -1,0 +1,29 @@
+{
+  "name": "dfs-officer-app",
+  "version": "1.0.0",
+  "description": "Officer app for the Delhi Fire Services department",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "_preinstall": "npm install -g grunt-cli watchify"
+  },
+  "author": "Vaibhav Sinha",
+  "license": "MIT",
+  "peerDependencies": {
+    "grunt": "^1.0.1"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-browserify": "^5.0.0",
+    "grunt-contrib-compass": "^1.1.1",
+    "grunt-serve": "^0.1.6"
+  },
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-officer-client": "delhi-egov/angular-officer-client",
+    "angular-ui-router": "^0.3.1",
+    "angular-ui-router-styles": "0.0.6",
+    "angular-utils-pagination": "^0.11.1",
+    "ng-file-upload": "^12.0.4"
+  }
+}

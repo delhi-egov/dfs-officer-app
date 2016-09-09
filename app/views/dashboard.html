@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Delhi Fire Services</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="build/stylesheets/dashboard.css">
+	<base href="/">
+</head>
+<body ng-app="app" ui-router-styles>
+	<div ui-view>
+		<div>
+			<header>
+				<section class="logo">
+					<img src="app/images/emblem_white.png">
+					<div>
+						<h3>delhi.gov.in</h3>
+						<h6>Govt. of NCT of Delhi</h6>
+					</div>
+				</section>
+				<h3 class="title">Delhi Fire Services</h3>
+				<section class="dropdown">
+					<input type="checkbox" id="dd">
+					<label for="dd">
+						<img src="app/images/profile.svg" class="profile">
+						<h5>{{dc.user.firstName + ' ' + dc.user.lastName}}</h5>
+						<img src="app/images/down.svg" class="dropdown-icon">
+					</label>
+					<div class="drop-box">
+						<ul class="drop-list">
+							<li style="display:none">
+								<img src="app/images/avatar.svg" class="drop-icon">
+								<span>Profile</span>
+							</li>
+							<li>
+								<img src="app/images/logout.svg" class="drop-icon">
+								<span ng-click="dc.logout()">Logout</span>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</header>
+			<section class="main">
+				<aside>
+					<h4 class="menu-title">Menu</h4>
+					<ul class="main-list">
+						<li ng-click="dc.goHome()">
+							<img src="app/images/icon3.svg" class="item-icon">
+							<span>Home</span>
+						</li>
+						<li ng-click="dc.loadMyApplicationsPage()">
+							<img src="app/images/icon2.svg" class="item-icon">
+							<span>My Applications</span>
+						</li>
+						<li>
+							<img src="app/images/icon1.svg" class="item-icon">
+							<span>New Application</span>
+							<img src="app/images/plus.svg" class="expand-icon">
+							<div class="submenu">
+								<ul class="sub-list">
+									<li ng-click="dc.applyForNewPlan()">Building Plan NOC</li>
+									<li ng-click="dc.applyForNewBuilding()">New Building NOC</li>
+									<li ng-click="dc.applyForRenewalBuilding()">Building NOC Renewal</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</aside>
+				<section class="content" ui-view>
+					<section class="top-content content-title">
+						<h3>Tasks</h3>
+						<small>This is a quick overview of your tasks</small>
+					</section>
+					<div class="content-body">
+						<section class="tabs">
+							<span ng-class="dc.userTasksActive ? 'active-tab' : 'inactive-tab'" ng-click="dc.showUserTasks()">Assigned Tasks</span>
+							<span ng-class="dc.userTasksActive ? 'inactive-tab' : 'active-tab'" ng-click="dc.showQueuedTasks()">Unassigned Tasks</span>
+						</section>
+						<section class="actions">
+							<input type="text" name="search" placeholder="Search Application No." ng-model="dc.search">
+							<img src="app/images/refresh.svg" ng-click="dc.refresh()">
+							<dir-pagination-controls max-size="5" direction-links="true" boundary-links="true"></dir-pagination-controls>
+							<!-- <section class="pagination">
+								<span class="previous">< Previous</span>
+								<span> | </span>
+								<span>Page 2 of 12</span>
+								<span> | </span>
+								<span class="next">Next ></span>
+							</section> -->
+						</section>
+						<section class="data">
+							<table class="applications-table">
+								<thead>
+									<th ng-click="dc.sort('variables.context.applicationId')" ng-class="{'active-sort': dc.sortKey === 'variables.context.applicationId'}">Application No</th>
+									<th ng-click="dc.sort('variables.context.applicationType')" ng-class="{'active-sort': dc.sortKey === 'variables.context.applicationType'}">Application Type</th>
+									<th ng-click="dc.sort('name')" ng-class="{'active-sort': dc.sortKey === 'name'}">Task Type</th>
+									<th ng-click="dc.sort('createTime')" ng-class="{'active-sort': dc.sortKey === 'createTime'}">Date</th>
+									<th ng-click="dc.sort('dueDate')" ng-class="{'active-sort': dc.sortKey === 'dueDate'}">Due Date</th>
+								</thead>
+								<tbody>
+									<tr dir-paginate="task in dc.tasks | orderBy:dc.sortKey:dc.reverse | filter:{name:dc.search} | itemsPerPage:2">
+										<td>{{task.variables.context.applicationId}}</td>
+										<td>{{task.variables.context.applicationType}}</td>
+										<td>{{task.name}}</td>
+										<td>{{task.createTime | date:'medium'}}</td>
+										<td>{{task.dueDate | date:'medium'}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</section>
+					</div>
+				</section>
+			</section>
+		</div>
+	</div>
+	<script src="build/js/bundle.js"></script>
+</body>
+</html>

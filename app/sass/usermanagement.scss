@@ -1,0 +1,166 @@
+@import "partials/_base.scss";
+
+
+/*
+  ========================================
+  Grid
+  ========================================
+*/
+
+$susy: (
+  columns: 7,
+  gutters: 0,
+  gutter-position: inside,
+);
+
+
+/*
+  ========================================
+  Custom styles
+  ========================================
+*/
+
+body {
+    background: url(../../app/images/bg.png);
+    color: #ffffff;
+    text-align: center;
+    font-weight: 300;
+    font-family: 'Lato', sans-serif;
+}
+
+input {
+    display: block;
+    width: 100%;
+    border-style: none;
+    border-bottom-style: solid;
+    border-bottom-color: #d0d0d0;
+    margin-bottom: 25px;
+    margin-top: 5px;
+    font-size: 15px;
+    color: #000000;
+}
+
+button {
+    display: block;
+    width: 100%;
+    border-style: none;
+    color: #ffffff;
+    background-color: #1377e5;
+    padding: 13px 0;
+    margin-top: 20px;
+}
+
+img {
+    margin-bottom: 20px;
+}
+
+a {
+    color: #ff0000;
+    text-decoration: underline;
+    &:hover {
+        color: #1377e5;
+    }
+}
+
+.container {
+    @include container;
+    @include clearfix;
+    border: 0;
+    margin: 0 auto;
+    width: 50%;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    .promotion {
+        @include span(3 of 7);
+
+        .logo {
+            margin: 68px 0;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-right-color: #cccccc;
+            padding: 60px 0;
+            color: #404040;
+        }
+    }
+
+    .content {
+        @include span(4 of 7 last);
+        text-align: left;
+
+        .main {
+            margin: 20px 50px;
+            h2 {
+                color: #1377e5;
+                padding-top: 20px;
+            }
+
+            .form {
+                padding: 20px 0;
+                color: #707070;
+            }
+        }
+    }
+}
+
+.hero {
+    margin-top: 60px;
+    margin-bottom: 22px;
+}
+
+.cta {
+    display: none;
+    margin-top: 30px;
+    text-align: center;
+
+    a {
+        cursor: pointer;
+        color: white;
+
+        &:hover {
+            color: #1377e5;
+        }
+    }
+}
+
+.resend {
+    display: block;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.message {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 13px;
+    color: #707070;
+}
+
+.otp {
+    width: 30%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.register {
+    padding-top: 10px;
+
+    input {
+        margin-bottom: 12px;
+    }
+}
+
+.error {
+        margin: 0 auto;
+        color: red;
+        display: block;
+        text-align: center;
+}

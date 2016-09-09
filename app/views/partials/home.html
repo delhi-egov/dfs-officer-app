@@ -1,0 +1,45 @@
+<div>
+	<section class="applications">
+		<section>
+			<img src="app/images/application1.svg">
+			<h4>Building Plan NOC</h4>
+			<span>Select this if you need a NOC for a new building plan</span>
+			<button ng-click="dc.applyForNewPlan()">Apply</button>
+		</section>
+		<section>
+			<img src="app/images/application2.svg">
+			<h4>New Building NOC</h4>
+			<span>Select this if you need a NOC for a new building plan</span>
+			<button ng-click="dc.applyForNewBuilding()">Apply</button>
+		</section>
+		<section>
+			<img src="app/images/application3.svg">
+			<h4>Building NOC Renewal</h4>
+			<span>Select this if you need a NOC for a new building plan</span>
+			<button ng-click="dc.applyForRenewalBuilding()">Apply</button>
+		</section>
+	</section>
+	<section class="my_applications">
+		<h4>Your Recent Applications</h4>
+		<table>
+			<thead>
+				<th>Application No.</th>
+				<th>Type</th>
+				<th>Date of Creation</th>
+				<th>Status</th>
+				<th>Progress</th>
+				<th>Action</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="application in hc.applications | limitTo: 5">
+					<td>#{{application.id}}</td>
+					<td>{{application.type.name}}</td>
+					<td>{{application.createdAt | date : "medium"}}</td>
+					<td><span class="status" ng-class="application.status === 'PROGRESS' ? 'progress' : application.status === 'FINISHED' ? 'accepted' : 'rejected'">{{application.status | statusFilter}}</span></td>
+					<td>{{application.progress | capitalize}}</td>
+					<td><button ng-click="hc.takeAction(application)" ng-hide="application.status === 'PROGRESS'">{{application.status === "PROGRESS" ? "-" : application.status === "WAITING_ON_USER" ? "Edit" : "Resume"}}</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</div>

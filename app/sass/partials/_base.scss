@@ -1,0 +1,88 @@
+@import "compass";
+@import "compass/reset";
+@import "susy";
+
+
+/*
+  ========================================
+  Grid
+  ========================================
+*/
+
+*,
+*::before,
+*::after {
+    @include box-sizing(border-box);
+}
+
+
+
+/*
+  ========================================
+  Typography
+  ========================================
+*/
+
+h1 {
+    font-size: 36px;
+    line-height: 44px;
+}
+
+h2 {
+    font-size: 28px;
+    line-height: 32px;
+}
+
+h3 {
+    font-size: 21px;
+    line-height: 22px;
+}
+
+h4 {
+    font-size: 18px;
+    line-height: 22px;
+}
+
+h5 {
+    font-size: 14px;
+    line-height: 16px;
+}
+
+h6 {
+    font-size: 10px;
+    line-height: 12px;
+}
+
+strong {
+    font-weight: 400;
+}
+
+cite,
+em {
+    font-style: italic;
+}
+
+small {
+    font-size: 14px;
+}
+
+
+/*
+  ========================================
+  Custom style
+  ========================================
+*/
+
+*:focus {
+    outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+label:after {
+  content: "*";
+  color: red;
+  padding-left: 2px;
+}

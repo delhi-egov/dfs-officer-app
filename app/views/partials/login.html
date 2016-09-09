@@ -1,0 +1,13 @@
+<div class="main">
+    <h2>Login</h2>
+    <form class="form login" name="loginForm">
+        <fieldset>
+            <label for="username">Username</label>
+            <input type="text" placeholder="vaibhav" name="username" id="username" required ng-model="lc.credentials.username">
+            <label for="password">Password</label>
+            <input type="password" placeholder="******" name="password" id="password" required ng-model="lc.credentials.password">
+            <button type="submit" ng-click="lc.login(loginForm.$invalid)">Login</button>
+        </fieldset>
+    </form>
+    <small class="error">{{lc.loginError}}</small>
+</div>

@@ -1,0 +1,190 @@
+// Override common styles
+
+aside {
+	width: 0%;
+}
+
+// Custom styles
+
+.top-content {
+	margin-top: $header-height;
+}
+
+.content-title {
+	background-color: white;
+	padding: 15px 25px;
+}
+
+$susy2: (
+	gutters: 0.0,
+	global-box-sizing: border-box,
+	);
+
+@include with-layout($susy2) {
+
+	.content-body {
+		margin: 20px 20px;
+		border-radius: 6px;
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19);
+		padding: 0 20px;
+		background-color: white;
+	}
+
+
+	.tabs {
+		background-color: white;
+		@include clearfix;
+		
+		span {
+			@include span(1 of 2);
+			text-align: center;
+			display: inline-block;
+			padding: 16px 10px;
+			cursor: pointer;
+		}
+
+		.active-tab {
+			border-bottom-width: 5px;
+			border-bottom-color: $main-color;
+			border-bottom-style: solid;
+		}
+
+		.inactive-tab {
+			border-bottom-width: 5px;
+			border-bottom-color: #f0f0f0;
+			border-bottom-style: solid;
+		}
+
+	}
+
+	.actions {
+		background-color: white;
+		border-radius: 6px;
+		padding: 0;
+		padding-top: 20px;
+
+		img {
+			vertical-align: middle;
+			width: 20px;
+			margin-left: 30px;
+			margin-right: 10px;
+			border-radius: 50%;
+			background-color: #f0f0f0;
+			padding: 4px;
+		}
+
+		input {
+			padding: 5px;
+			border-radius: 5px;
+			border-style: solid;
+			border-width: 1px;
+			background-image: url(../../app/images/search.svg);
+			background-position: 3px 50%;
+			padding-left: 30px;
+			background-repeat: no-repeat;
+			border-color: $grey-text-color;
+			font-weight: $font-weight;
+		}
+
+		.pagination1 {
+			display: inline-block;
+			float: right;
+			font-size: 14px;
+			padding-top: 6px;
+
+			.previous {
+				cursor: pointer;
+				&:hover {
+					font-weight: bold;
+				}
+			}
+
+			.next {
+				cursor: pointer;
+				&:hover {
+					font-weight: bold;
+				}
+			}
+		}
+
+		.pagination {
+			display: inline-block;
+			float: right;
+			font-size: 14px;
+			padding-top: 6px;
+
+			li {
+				display: inline-block;
+				margin: 0 5px;
+			}
+
+			.active {
+				font-weight: bold;
+			}
+		}
+	}
+
+	.data {
+		background-color: white;
+		border-radius: 6px;
+		padding: 20px 0;
+		margin-bottom: 10px;
+
+		table {
+			width: 100%;
+			border-collapse:collapse; 
+			border-spacing:0 1em;
+
+		}
+
+		tr {
+			cursor: pointer;
+			border-style: solid;
+			border-radius: 1px;
+			border-color: black;
+
+			&:nth-child(odd) {
+				background-color: #efefef;
+			}
+
+			&:nth-child(even) {
+				background-color: #fafafa;
+			}
+		}
+
+		thead {
+			color: white;
+			margin-bottom: 10px;
+		}
+
+		th {
+			background-color: #00c35a;
+			padding: 12px;
+			margin: 5px;
+			font-weight: $font-weight;
+			text-align: center;
+			&:hover {
+				font-weight: 400;
+			}
+			// background-image: url(../app/images/down-arrow.svg);
+			// background-repeat: no-repeat;
+			// background-position: right;
+
+			// .up {
+			// 	background-image: url(../app/images/up-arrow.svg);
+			// }
+		}
+
+		td {
+			margin-top: 10px;
+			padding: 12px;
+			text-align: center;
+			color: $grey-text-color;
+			font-weight: $font-weight;
+		}
+
+		.active-sort {
+			font-weight: 400;
+		}
+	}
+}
