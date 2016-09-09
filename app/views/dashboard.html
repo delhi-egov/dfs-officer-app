@@ -101,7 +101,7 @@
 									<th ng-click="dc.sort('dueDate')" ng-class="{'active-sort': dc.sortKey === 'dueDate'}">Due Date</th>
 								</thead>
 								<tbody>
-									<tr dir-paginate="task in dc.tasks | orderBy:dc.sortKey:dc.reverse | filter:{name:dc.search} | itemsPerPage:2">
+									<tr dir-paginate="task in dc.tasks | orderBy:dc.sortKey:dc.reverse | filter:{variables: {context: {applicationId: dc.search}}} | itemsPerPage:2" ng-click="dc.selectTask(task)">
 										<td>{{task.variables.context.applicationId}}</td>
 										<td>{{task.variables.context.applicationType}}</td>
 										<td>{{task.name}}</td>

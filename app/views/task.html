@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Delhi Fire Services</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="build/stylesheets/task.css">
+	<base href="/">
+</head>
+<body ng-app="app" ui-router-styles>
+	<div ui-view>
+		<div>
+			<header>
+				<section class="logo">
+					<img src="app/images/emblem_white.png">
+					<div>
+						<h3>delhi.gov.in</h3>
+						<h6>Govt. of NCT of Delhi</h6>
+					</div>
+				</section>
+				<h3 class="title">Delhi Fire Services</h3>
+				<section class="dropdown">
+					<input type="checkbox" id="dd">
+					<label for="dd">
+						<img src="app/images/profile.svg" class="profile">
+						<h5>{{tc.user.firstName + ' ' + tc.user.lastName}}</h5>
+						<img src="app/images/down.svg" class="dropdown-icon">
+					</label>
+					<div class="drop-box">
+						<ul class="drop-list">
+							<li style="display:none">
+								<img src="app/images/avatar.svg" class="drop-icon">
+								<span>Profile</span>
+							</li>
+							<li>
+								<img src="app/images/logout.svg" class="drop-icon">
+								<span ng-click="dc.logout()">Logout</span>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</header>
+			<section class="main">
+				<aside>
+					<h4 class="menu-title">Menu</h4>
+					<ul class="main-list">
+						<li ng-click="dc.goHome()">
+							<img src="app/images/icon3.svg" class="item-icon">
+							<span>Home</span>
+						</li>
+						<li ng-click="dc.loadMyApplicationsPage()">
+							<img src="app/images/icon2.svg" class="item-icon">
+							<span>My Applications</span>
+						</li>
+						<li>
+							<img src="app/images/icon1.svg" class="item-icon">
+							<span>New Application</span>
+							<img src="app/images/plus.svg" class="expand-icon">
+							<div class="submenu">
+								<ul class="sub-list">
+									<li ng-click="dc.applyForNewPlan()">Building Plan NOC</li>
+									<li ng-click="dc.applyForNewBuilding()">New Building NOC</li>
+									<li ng-click="dc.applyForRenewalBuilding()">Building NOC Renewal</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</aside>
+				<section class="content" ui-view>
+					<section class="top-content navigation">
+						<span class="back-navigate" ng-click="tc.goBack()">Dashboard</span>
+						<span class="title">#{{tc.task.variables.context.applicationId}} {{tc.task.variables.context.applicationType}}</span>
+					</section>
+					<section class="content-body">
+						<section class="attachments-bar">
+							<section class="attachments user-attachments">
+								<h5>User Attachments</h5>
+								<ul>
+									<li><img src="app/images/profile.svg"><span>Form 11</span></li>
+									<li><img src="app/images/profile.svg"><span>Form C</span></li>
+									<li><img src="app/images/profile.svg"><span>Compliance Report</span></li>
+									<li><img src="app/images/profile.svg"><span>Building Plan</span></li>
+								</ul>
+							</section>
+							<section class="attachments internal-attachments">
+								<h5>Internal Attachments</h5>
+								<ul>
+									<li><img src="app/images/profile.svg"><span>Form 11</span></li>
+									<li><img src="app/images/profile.svg"><span>Form C</span></li>
+									<li><img src="app/images/profile.svg"><span>Compliance Report</span></li>
+									<li><img src="app/images/profile.svg"><span>Building Plan</span></li>
+								</ul>
+							</section>
+						</section>
+						<section class="display-bar">
+							<span class="title">#{{tc.task.variables.context.applicationId}} {{tc.task.variables.context.applicationType}}</span>
+							<hr>
+							<div class="display"></div>
+						</section>
+						<section class="action-bar">
+							<section class="actions">
+								<h5>Actions</h5>
+								<button class="claim" ng-click="tc.claimTask()">Claim Task</button>
+								<button class="complete" ng-click="tc.completeTask()">Complete Task</button>
+							</section>
+							<section class="notes">
+								<h5>Notes</h5>
+								<ul>
+									<li class="note" ng-repeat="comment in tc.comments">
+										<img src="app/images/profile.svg">
+										<div>
+											<span>{{comment.message}}</span>
+											<address>{{comment.author}}</address>
+											<time>{{comment.time | date:'medium'}}</time>
+										</div>
+									</li>
+							</ul>
+							<hr>
+							<textarea rows="4" placeholder="Type your note here..." ng-model="tc.commentText"></textarea>
+							<button type="submit" ng-click="tc.addComment()">Save</button>
+						</section>
+					</section>
+				</section>
+			</section>
+		</section>
+	</div>
+
+</div>
+<!-- <script src="build/js/bundle.js"></script> -->
+</body>
+</html>

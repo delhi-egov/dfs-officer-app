@@ -35,7 +35,7 @@ app.factory("taskService", ['$state', 'backendClient', 'authInfo', 'taskInfo', a
 //Controller registration
 app.controller("userController", ['userService', userController]);
 app.controller("loginController", ['userService', loginController]);
-app.controller("taskController", ['userService', taskController]);
+app.controller("taskController", ['$scope', '$state', 'taskService', 'userService', 'taskInfo', 'authInfo', taskController]);
 app.controller("dashboardController", ['userService', 'taskService', 'authInfo', '$state', '$scope', '$timeout', dashboardController]);
 
 //Configuration

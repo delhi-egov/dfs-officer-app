@@ -18,28 +18,33 @@ $susy2: (
 	margin-top: $header-height;
 }
 
-.content-body {
-	margin: 20px 0;
+.content {
+	z-index: -2;
 }
 
-.actions {
+.navigation {
 	background-color: white;
 	padding: 20px 20px;
 	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
-	position: relative;
-	z-index: -1;
+	//position: relative;
+	z-index: 9;
+	text-align: center;
 
 	.back-navigate {
 		background-image: url(../app/images/profile.svg);
 		background-repeat: no-repeat;
 		padding-left: 30px;
+		cursor: pointer;
+		float: left;
 	}
 
 	.title {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translateX(-50%) translateY(-50%);
+		// position: absolute;
+		// top: 50%;
+		// left: 50%;
+		// transform: translateX(-50%) translateY(-50%);
+		display: inline-block;
+		margin: 0 auto;
 		color: $main-color;
 	}
 }
@@ -49,7 +54,7 @@ $susy2: (
 	table-layout: fixed;
 	border-collapse: separate;
 	border-spacing: 20px 0;
-
+	margin: 20px 0;
 
 	.attachments-bar {
 		width: 18%;
@@ -93,7 +98,6 @@ $susy2: (
 		background-color: white;
 		box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
 		display: table-cell;
-		vertical-align: top;
 
 		h5 {
 			background-color: #ff4a51;
@@ -102,28 +106,59 @@ $susy2: (
 			padding: 12px 8px;
 		}
 
-		ul {
-			margin: 10px 10px;
+		.actions {
+			h5 {
+				margin-bottom: 10px;
+			}
+
+			button {
+				color: white;
+				background-color: #00c459;
+				margin-right: 10%;
+				margin-left: 10%;
+				margin-bottom: 10px;
+				border-style: none;
+				padding: 5px 10px;
+				display: block;
+				width: 80%;
+				font-size: 14px;
+			}
+
+			.claim {
+				margin-top: 20px;
+			}
+
+			.complete {
+				margin-bottom: 20px;
+			}
+
 		}
 
-		textarea {
-			display: block;
-			height: 100px;
-			width: 90%;
-			margin: 10px auto;
-			background-color: #f4f4f4;
-		}
+		.notes {
+			vertical-align: top;
 
-		button {
-			color: white;
-			background-color: #00c459;
-			float: right;
-			margin-right: 10px;
-			margin-bottom: 10px;
-			border-style: none;
-			padding: 5px 10px;
-		}
+			ul {
+				margin: 10px 10px;
+			}
 
+			textarea {
+				display: block;
+				height: 100px;
+				width: 90%;
+				margin: 10px auto;
+				background-color: #f4f4f4;
+			}
+
+			button {
+				color: white;
+				background-color: #00c459;
+				float: right;
+				margin-right: 10px;
+				margin-bottom: 10px;
+				border-style: none;
+				padding: 5px 10px;
+			}
+		}
 	}
 }
 

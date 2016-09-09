@@ -37,7 +37,7 @@ module.exports = function($stateProvider, $urlRouterProvider, $locationProvider)
     })
     .state('task', {
       //url: '/',
-      templateUrl: 'app/views/partials/task.html',
+      templateUrl: 'app/views/task.html',
       controller: 'taskController',
       controllerAs: 'tc',
       data: {
