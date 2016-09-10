@@ -13,7 +13,7 @@ module.exports = function(userService, taskService, authInfo, $state, $scope, $t
     };
     this.selectTask = function(task) {
         taskService.selectTask(that, task);
-        $state.go('task');
+        $state.go('task.' + task.taskDefinitionKey);
     };
     this.showUserTasks = function() {
         this.tasks = this.userTasks;

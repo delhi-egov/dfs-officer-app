@@ -42,7 +42,8 @@ $susy2: (
 		// position: absolute;
 		// top: 50%;
 		// left: 50%;
-		// transform: translateX(-50%) translateY(-50%);
+		//transform: translateX(-50%) translateY(-50%);
+		transform: translateX(-50%);
 		display: inline-block;
 		margin: 0 auto;
 		color: $main-color;
@@ -55,6 +56,7 @@ $susy2: (
 	border-collapse: separate;
 	border-spacing: 20px 0;
 	margin: 20px 0;
+	width: 100%;
 
 	.attachments-bar {
 		width: 18%;
@@ -65,25 +67,50 @@ $susy2: (
 	}
 
 	.display-bar {
+
 		width: 64%;
-		background-color: white;
-		box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
-		border-radius: 5px;
-		padding: 20px;
 		overflow: scroll;
-		min-height: 500px;
 		display: table-cell;
 		vertical-align: top;
 
-		.title {
+		.display {
+			background-color: white;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			// border-radius: 5px;
+			padding: 20px;
+		}
+
+		.display-title {
 			background-image: url(../app/images/icon1.svg);
 			background-repeat: no-repeat;
 			background-position: 0px 50%;
 			padding-left: 25px;
 		}
 
-		.display {
-			height: 100vh;
+		.display-content {
+			min-height: 80vh;
+			text-align: center;
+
+			.default, .unknown {
+				text-align: center;
+
+				img {
+					width: 360px;
+					margin: 0 auto;
+					vertical-align: middle;
+				}
+			}
+
+			.doc, .image {
+				text-align: center;
+				overflow: scroll;
+				height: 800px;
+				
+				iframe {
+					width: 100%;
+					height: 800px;
+				}
+			}
 		}
 
 		hr {
@@ -116,7 +143,8 @@ $susy2: (
 				background-color: #00c459;
 				margin-right: 10%;
 				margin-left: 10%;
-				margin-bottom: 10px;
+				margin-bottom: 20px;
+				margin-top: 20px;
 				border-style: none;
 				padding: 5px 10px;
 				display: block;
@@ -124,13 +152,13 @@ $susy2: (
 				font-size: 14px;
 			}
 
-			.claim {
-				margin-top: 20px;
-			}
+			// .claim {
+			// 	margin-top: 20px;
+			// }
 
-			.complete {
-				margin-bottom: 20px;
-			}
+			// .complete {
+			// 	margin-bottom: 20px;
+			// }
 
 		}
 
@@ -213,6 +241,7 @@ $susy2: (
 		padding: 10px 0;
 		border-bottom-style: solid;
 		border-bottom-width: 1px;
+		cursor: pointer;
 
 		span {
 			vertical-align: middle;

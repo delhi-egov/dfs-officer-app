@@ -37,12 +37,19 @@ module.exports = function($stateProvider, $urlRouterProvider, $locationProvider)
     })
     .state('task', {
       //url: '/',
+      abstract: true,
       templateUrl: 'app/views/task.html',
       controller: 'taskController',
       controllerAs: 'tc',
       data: {
             css: 'build/stylesheets/task.css'
       }
+  })
+    .state('task.scrutiny', {
+      //url: '/',
+      templateUrl: 'app/views/partials/scrutiny.html',
+      controller: 'scrutinyController',
+      controllerAs: 'sc'
   });
 
     $urlRouterProvider.otherwise('/');

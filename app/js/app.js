@@ -12,6 +12,7 @@ var userController = require("./controllers/user_controller");
 var loginController = require("./controllers/login_controller");
 var dashboardController = require("./controllers/dashboard_controller");
 var taskController = require("./controllers/task_controller");
+var scrutinyController = require("./controllers/scrutiny_controller");
 
 var app = angular.module("app", ['ui.router', 'ngFileUpload', 'uiRouterStyles', angularUtilsPagination]);
 
@@ -20,6 +21,18 @@ app.filter('capitalize', function() {
     return function(input) {
       return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
     }
+});
+app.filter('attachmentFilter', function() {
+	return function(input, taskType) {
+		var out = {};
+		angular.forEach(input, function(value, key) {
+			if(taskType === 'scrutiny') {
+				if(key !== 'ALC Report') {
+					out[key] = value;
+				}
+			}
+		});
+	}
 });
 
 //Interceptors registration
@@ -35,8 +48,9 @@ app.factory("taskService", ['$state', 'backendClient', 'authInfo', 'taskInfo', a
 //Controller registration
 app.controller("userController", ['userService', userController]);
 app.controller("loginController", ['userService', loginController]);
-app.controller("taskController", ['$scope', '$state', 'taskService', 'userService', 'taskInfo', 'authInfo', taskController]);
+app.controller("taskController", ['$scope', '$state', '$sce', 'taskService', 'userService', 'taskInfo', 'authInfo', taskController]);
 app.controller("dashboardController", ['userService', 'taskService', 'authInfo', '$state', '$scope', '$timeout', dashboardController]);
+app.controller("scrutinyController", ['taskService', 'taskInfo', scrutinyController]);
 
 //Configuration
 app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {

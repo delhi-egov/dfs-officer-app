@@ -1,10 +1,25 @@
-module.exports = function($scope, $state, taskService, userService, taskInfo, authInfo) {
+module.exports = function($scope, $state, $sce, taskService, userService, taskInfo, authInfo) {
     var that = this;
-    this.selectForm = function(form) {
-
+    this.selectedAttachment = {};
+    this.selectForm = function(formName, form) {
+        this.selectedAttachment.name = formName;
+        this.selectedAttachment.attachment = form;
+        this.selectedAttachment.display = formName;
     };
-    this.selectDocument = function(document) {
-
+    this.selectDocument = function(documentName, document) {
+        this.selectedAttachment.name = documentName;
+        this.selectedAttachment.attachment = document;
+        if(document.endsWith('jpg') || document.endsWith('png') || document.endsWith('jpeg') || document.endsWith('svg')) {
+            this.selectedAttachment.display = 'image';
+            this.selectedAttachment.url = 'api/file/' + document;
+        }
+        else if(document.endsWith('pdf') || document.endsWith('doc') || document.endsWith('docx') || document.endsWith('txt')) {
+            this.selectedAttachment.display = 'doc';
+            this.selectedAttachment.url = $sce.trustAsResourceUrl('https://docs.google.com/viewer?embedded=true&url=http://localhost/api/file/' + document);
+        }
+        else {
+            this.selectedAttachment.display = 'unknown';
+        }
     };
     this.addComment = function() {
         taskService.addComment(this, this.commentText).then(function(response) {
