@@ -3,6 +3,7 @@ var angular = require("angular");
 require("angular-ui-router");
 require("ng-file-upload");
 require('angular-ui-router-styles');
+require('angular-block-ui');
 var angularUtilsPagination = require('angular-utils-pagination');
 
 var angularOfficerClient = require("angular-officer-client");
@@ -14,7 +15,7 @@ var dashboardController = require("./controllers/dashboard_controller");
 var taskController = require("./controllers/task_controller");
 var scrutinyController = require("./controllers/scrutiny_controller");
 
-var app = angular.module("app", ['ui.router', 'ngFileUpload', 'uiRouterStyles', angularUtilsPagination]);
+var app = angular.module("app", ['ui.router', 'ngFileUpload', 'uiRouterStyles', 'blockUI', angularUtilsPagination]);
 
 //Filters
 app.filter('capitalize', function() {

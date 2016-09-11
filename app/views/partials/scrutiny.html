@@ -2,5 +2,6 @@
 	<h5>ALC Report</h5>
 	<hr>
 	<textarea ng-model="sc.alcReport.report" placeholder="Add your report here..."></textarea>
+	<small>{{formPostError}}</small>
 	<button type="submit" ng-click="sc.saveReport()">Save</button>
 </div>
