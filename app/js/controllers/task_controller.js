@@ -28,10 +28,16 @@ module.exports = function($scope, $state, $sce, taskService, userService, taskIn
         });
     };
     this.completeTask = function() {
-        taskService.completeTask(this);
+        taskService.completeTask(this).then(function(response) {
+            that.task = taskInfo.task;
+            $scope.$apply();
+        });
     };
     this.claimTask = function() {
-        taskService.claimTask(this);
+        taskService.claimTask(this).then(function(response) {
+            that.task = taskInfo.task;
+            $scope.$apply();
+        });
     };
     this.goBack = function() {
         $state.go('dashboard');

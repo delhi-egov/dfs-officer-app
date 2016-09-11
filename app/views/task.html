@@ -31,35 +31,11 @@
 			</section>
 		</header>
 		<section class="main">
-			<aside>
-				<h4 class="menu-title">Menu</h4>
-				<ul class="main-list">
-					<li ng-click="dc.goHome()">
-						<img src="app/images/icon3.svg" class="item-icon">
-						<span>Home</span>
-					</li>
-					<li ng-click="dc.loadMyApplicationsPage()">
-						<img src="app/images/icon2.svg" class="item-icon">
-						<span>My Applications</span>
-					</li>
-					<li>
-						<img src="app/images/icon1.svg" class="item-icon">
-						<span>New Application</span>
-						<img src="app/images/plus.svg" class="expand-icon">
-						<div class="submenu">
-							<ul class="sub-list">
-								<li ng-click="dc.applyForNewPlan()">Building Plan NOC</li>
-								<li ng-click="dc.applyForNewBuilding()">New Building NOC</li>
-								<li ng-click="dc.applyForRenewalBuilding()">Building NOC Renewal</li>
-							</ul>
-						</div>
-					</li>
-				</ul>
-			</aside>
 			<section class="content">
 				<section class="top-content navigation">
 					<span class="back-navigate" ng-click="tc.goBack()">Dashboard</span>
 					<span class="title">#{{tc.task.variables.context.applicationId}} {{tc.task.variables.context.applicationType}}</span>
+					<span class="assignee">Assignee <b>{{tc.task.assignee || 'none'}}</b></span>
 				</section>
 				<section class="content-body">
 					<section class="attachments-bar">
@@ -163,7 +139,7 @@
 						<section class="actions">
 							<h5>Actions</h5>
 							<button class="claim" ng-click="tc.claimTask()" ng-show="!tc.task.assignee">Claim Task</button>
-							<button class="complete" ng-click="tc.completeTask()" ng-show="tc.task.assignee">Complete Task</button>
+							<button class="complete" ng-click="tc.completeTask()" ng-show="tc.task.assignee && !tc.task.complete">Complete Task</button>
 						</section>
 						<section class="notes">
 							<h5>Notes</h5>
