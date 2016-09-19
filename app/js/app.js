@@ -14,6 +14,7 @@ var loginController = require("./controllers/login_controller");
 var dashboardController = require("./controllers/dashboard_controller");
 var taskController = require("./controllers/task_controller");
 var scrutinyController = require("./controllers/scrutiny_controller");
+var applicationController = require("./controllers/application_controller");
 
 var app = angular.module("app", ['ui.router', 'ngFileUpload', 'uiRouterStyles', 'blockUI', angularUtilsPagination]);
 
@@ -42,15 +43,18 @@ app.factory("authenticationInterceptor", ['$q', '$location', '$injector', 'authI
 //Services registration
 app.factory("authInfo", angularOfficerClient.infoHolder);
 app.factory("taskInfo", angularOfficerClient.infoHolder);
+app.factory("applicationInfo", angularOfficerClient.infoHolder);
 app.factory("backendClient", ['$http', 'Upload', angularOfficerClient.backendClient]);
 app.factory("userService", ['$state', 'backendClient', 'authInfo', angularOfficerClient.userService]);
 app.factory("taskService", ['$state', 'backendClient', 'authInfo', 'taskInfo', angularOfficerClient.taskService]);
+app.factory("applicationService", ['$state', 'backendClient', 'authInfo', 'applicationInfo', angularOfficerClient.applicationService]);
 
 //Controller registration
 app.controller("userController", ['userService', userController]);
 app.controller("loginController", ['userService', loginController]);
 app.controller("taskController", ['$scope', '$state', '$sce', 'taskService', 'userService', 'taskInfo', 'authInfo', taskController]);
-app.controller("dashboardController", ['userService', 'taskService', 'authInfo', '$state', '$scope', '$timeout', dashboardController]);
+app.controller("applicationController", ['$scope', '$state', '$sce', 'applicationService', 'userService', 'applicationInfo', 'authInfo', applicationController]);
+app.controller("dashboardController", ['userService', 'taskService', 'applicationService', 'authInfo', '$state', '$scope', '$timeout', dashboardController]);
 app.controller("scrutinyController", ['taskService', 'taskInfo', scrutinyController]);
 
 //Configuration

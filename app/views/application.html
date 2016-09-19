@@ -1,0 +1,148 @@
+<div>
+	<div>
+		<header>
+			<section class="logo">
+				<img src="app/images/emblem_white.png">
+				<div>
+					<h3>delhi.gov.in</h3>
+					<h6>Govt. of NCT of Delhi</h6>
+				</div>
+			</section>
+			<h3 class="title">Delhi Fire Services</h3>
+			<section class="dropdown">
+				<input type="checkbox" id="dd">
+				<label for="dd">
+					<img src="app/images/profile.svg" class="profile">
+					<h5>{{tc.user.firstName + ' ' + tc.user.lastName}}</h5>
+					<img src="app/images/down.svg" class="dropdown-icon">
+				</label>
+				<div class="drop-box">
+					<ul class="drop-list">
+						<li style="display:none">
+							<img src="app/images/avatar.svg" class="drop-icon">
+							<span>Profile</span>
+						</li>
+						<li>
+							<img src="app/images/logout.svg" class="drop-icon">
+							<span ng-click="dc.logout()">Logout</span>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</header>
+		<section class="main">
+			<section class="content">
+				<section class="top-content navigation">
+					<span class="back-navigate" ng-click="ac.goBack()">Dashboard</span>
+					<span class="title">#{{ac.application.variables.context.applicationId}} {{ac.application.variables.context.applicationType}}</span>
+				</section>
+				<section class="content-body">
+					<section class="attachments-bar">
+						<section class="attachments user-attachments">
+							<h5>User Attachments</h5>
+							<ul>
+								<li ng-repeat="(formName, form) in ac.application.variables.forms" ng-click="ac.selectForm(formName, form)"><img src="app/images/profile.svg"><span>{{formName}}</span></li>
+								<li ng-repeat="(documentName, document) in ac.application.variables.documents" ng-click="ac.selectDocument(documentName, document)"><img src="app/images/profile.svg"><span>{{documentName}}</span></li>
+							</ul>
+						</section>
+						<section class="attachments internal-attachments">
+							<h5>Internal Attachments</h5>
+							<ul>
+								<li ng-repeat="(formName, form) in ac.application.variables.internalForms" ng-click="ac.selectForm(formName, form)"><img src="app/images/profile.svg"><span>{{formName}}</span></li>
+								<li ng-repeat="(documentName, document) in ac.application.variables.internalDocuments" ng-click="ac.selectDocument(documentName, document)"><img src="app/images/profile.svg"><span>{{documentName}}</span></li>
+							</ul>
+						</section>
+					</section>
+					<section class="display-bar">
+						<section class="display">
+							<span class="display-title">{{ac.selectedAttachment.name || '#' + ac.application.variables.context.applicationId + ' ' + ac.application.variables.context.applicationType}}</span>
+							<hr>
+							<div class="display-content">
+								<div class="default" ng-show="ac.selectedAttachment.name === undefined">
+									<img src="app/images/upload.svg">
+									<h4>Select an attachment</h4>
+								</div>
+								<div class="unknown" ng-show="ac.selectedAttachment.display === 'unknown'">
+									<img src="app/images/upload.svg">
+									<h4>Unknown file format</h4>
+								</div>
+								<div class="doc" ng-show="ac.selectedAttachment.display === 'doc'">
+									<iframe ng-src="{{ac.selectedAttachment.url}}"></iframe>
+								</div>
+								<div class="image" ng-show="ac.selectedAttachment.display === 'image'">
+									<img ng-src="{{ac.selectedAttachment.url}}">
+								</div>
+								<div class="application-form" ng-show="ac.selectedAttachment.display === 'Form-I'">
+									<div class="form form-i">
+										<section class="letter-heading">
+											<h4>FORM 'I': APPLICATION FOR GRANT OF FIRE SAFETY CERTIFICATE</h4>
+											[See sub-rule (2) of rule 35]
+										</section>
+										<section class="letter">
+											<section class="address">
+												To<br>
+												The Director<br>
+												Delhi Fire Service<br>
+												Delhi Fire Service Headquarters<br>
+												Connaught Place<br>
+												New Delhi-110 001<br>
+											</section>
+											<section class="subject">
+												Sub: Application for grant of fire safety certificate in respect of
+												<input type="text" class="building-name-1" ng-model="ac.selectedAttachment.attachment.buildingName" disabled>
+												at
+												<input type="text" class="address-1" ng-model="ac.selectedAttachment.attachment.buildingAddress" disabled>
+												(address of building/premises).
+											</section>
+											<section class="salutation">
+												Sir/Madam,
+											</section>
+											<section class="letter-content">
+												<p>
+													This is to inform you that a fire safety certificate needs to be issued in respect of
+													<input type="text" class="building-name-2" ng-model="ac.selectedAttachment.attachment.buildingName" disabled>
+													(name of the building) located at
+													<input type="text" class="address-2" ng-model="ac.selectedAttachment.attachment.buildingAddress" disabled>
+													(address of the building) comprised of
+													<input type="text" class="comprised-of" ng-model="ac.selectedAttachment.attachment.comprisedOf" disabled>
+													and having occupancies as
+													<input type="text" class="occupancies" ng-model="ac.selectedAttachment.attachment.occupancies" disabled>
+													.
+												</p>
+												<p>
+													In this connection it is submitted that all the fire prevention and fire safety measures as recommended by you vide letter No.
+													<input type="text" class="letter-no" ng-model="ac.selectedAttachment.attachment.letterNumber" disabled>
+													dated
+													<input type="date" class="letter-date" ng-model="ac.selectedAttachment.attachment.letterDate" disabled>
+													have been provided in the building/premises and para wise compliance report is enclosed.
+												</p>
+												<p>
+													You are requested to kindly take action as necessary for grant of fire safety certificate for occupancy of the building/premises.
+												</p>
+											</section>
+											<section class="sender-details">
+												Dated <input type="date" class="dated" ng-model="ac.selectedAttachment.attachment.date" disabled><br>
+												Contact Details <input type="text" class="contact-details" ng-model="ac.selectedAttachment.attachment.contactDetails" disabled><br>
+												Name in full <input type="text" class="name" ng-model="ac.selectedAttachment.attachment.name" disabled><br>
+												Tel No. <input type="tel" class="telephone" ng-model="ac.selectedAttachment.attachment.telephone" disabled><br>
+												Mobile No. <input type="tel" class="mobile" ng-model="ac.selectedAttachment.attachment.mobile" disabled><br>
+											</section>
+										</section>
+									</div>
+								</div>
+							</div>
+						</section>
+						<section ui-view></section>
+					</section>
+					<!-- <section class="action-bar">
+						<section class="actions">
+							<h5>Actions</h5>
+							<button class="claim" ng-click="tc.claimTask()" ng-show="!tc.task.assignee">Claim Task</button>
+							<button class="complete" ng-click="tc.completeTask()" ng-show="tc.task.assignee && !tc.task.complete">Complete Task</button>
+						</section>
+					</section> -->
+				</section>
+			</section>
+		</section>
+	</div>
+</div>

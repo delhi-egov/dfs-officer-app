@@ -1,4 +1,4 @@
-module.exports = function(userService, taskService, authInfo, $state, $scope, $timeout) {
+module.exports = function(userService, taskService, applicationService, authInfo, $state, $scope, $timeout) {
     var that = this;
     this.tasks = [];
     this.userTasksActive = true;
@@ -55,6 +55,12 @@ module.exports = function(userService, taskService, authInfo, $state, $scope, $t
             });
         });
     };
+    this.getHistoricalApplication = function() {
+        applicationService.getHistoricalProcess(this.applicationSearchId)
+        .then(function (response) {
+            $state.go('application');
+        })
+    },
     userService.me().then(function(response) {
         that.getTasks();
     }, function(response) {

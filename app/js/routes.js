@@ -50,7 +50,15 @@ module.exports = function($stateProvider, $urlRouterProvider, $locationProvider)
       templateUrl: 'app/views/partials/scrutiny.html',
       controller: 'scrutinyController',
       controllerAs: 'sc'
-  });
+  })
+    .state('application',  {
+        templateUrl: 'app/views/application.html',
+        controller: 'applicationController',
+        controllerAs: 'ac',
+        data: {
+            css: 'build/stylesheets/task.css'
+        }
+    });
 
     $urlRouterProvider.otherwise('/');
 
