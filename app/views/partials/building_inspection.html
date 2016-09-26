@@ -1,0 +1,10 @@
+<div class="alc-report">
+	<h4>Inspection Details</h4>
+	<hr>
+	<label for="date">Date of Inspection</label>
+	<input type="text" id="date" ng-model="fc.forms['Inspection Details'].date">
+	<label for="officers">Officers</label>
+	<input type="text" id="officers" ng-model="fc.forms['Inspection Details'].officers">
+	<small>{{formPostError}}</small>
+	<button type="submit" ng-click="fc.saveForm('Inspection Details')">Save</button>
+</div>

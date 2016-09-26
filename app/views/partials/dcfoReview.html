@@ -1,0 +1,12 @@
+<div class="alc-report">
+	<h4>Review Comments and Decision</h4>
+	<hr>
+	<textarea ng-model="fc.forms['Deputy Chief Fire Officer Review'].review"></textarea>
+	<label for="decision">Recommendations ok?</label>
+	<select id="decision" ng-model="fc.forms['Deputy Chief Fire Officer Review'].decision">
+		<option value="true">Accept</option>
+		<option value="false">Reject</option>
+	</select>
+	<small>{{formPostError}}</small>
+	<button type="submit" ng-click="fc.saveForm('Deputy Chief Fire Officer Review')">Save</button>
+</div>

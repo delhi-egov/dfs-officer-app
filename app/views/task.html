@@ -56,7 +56,7 @@
 					</section>
 					<section class="display-bar">
 						<section class="display">
-							<span class="display-title">{{tc.selectedAttachment.name || '#' + tc.task.variables.context.applicationId + ' ' + tc.task.variables.context.applicationType}}</span>
+							<h4 class="display-title">{{tc.selectedAttachment.name || '#' + tc.task.variables.context.applicationId + ' ' + tc.task.variables.context.applicationType}}</h4>
 							<hr>
 							<div class="display-content">
 								<div class="default" ng-show="tc.selectedAttachment.name === undefined">
@@ -73,7 +73,7 @@
 								<div class="image" ng-show="tc.selectedAttachment.display === 'image'">
 									<img ng-src="{{tc.selectedAttachment.url}}">
 								</div>
-								<div class="application-form" ng-show="tc.selectedAttachment.display === 'Form-I'">
+								<div class="application-form" ng-show="tc.selectedAttachment.display === 'Form I'">
 									<div class="form form-i">
 										<section class="letter-heading">
 											<h4>FORM 'I': APPLICATION FOR GRANT OF FIRE SAFETY CERTIFICATE</h4>
@@ -129,6 +129,41 @@
 												Mobile No. <input type="tel" class="mobile" ng-model="tc.selectedAttachment.attachment.mobile" disabled><br>
 											</section>
 										</section>
+									</div>
+								</div>
+								<div class="application-form" ng-show="tc.selectedAttachment.display === 'Inspection Details'">
+									<div>
+										<span>Date of Inspection: </span> {{tc.selectedAttachment.attachment.data.date}}
+										<br><br>
+										<span>Officers: </span> {{tc.selectedAttachment.attachment.data.officers}}
+									</div>
+								</div>
+								<div class="application-form" ng-show="tc.selectedAttachment.display === 'Recommendations'">
+									<div>
+										{{tc.selectedAttachment.attachment.data.data}}
+									</div>
+								</div>
+								<div class="application-form" ng-show="tc.selectedAttachment.display === 'Divisional Officer Review'">
+									<div>
+										<span>Divisional Officer {{tc.selectedAttachment.attachment.data.decision === 'true' ? 'Accepted' : 'Rejected'}} the recommendations</span>
+										<br><br>
+										<span>Comments</span>
+										<br>
+										{{tc.selectedAttachment.attachment.data.review}}
+									</div>
+								</div>
+								<div class="application-form" ng-show="tc.selectedAttachment.display === 'Deputy Chief Fire Officer Review'">
+									<div>
+										<span>Deputy Chief Fire Officer {{tc.selectedAttachment.attachment.data.decision === 'true' ? 'Accepted' : 'Rejected'}} the recommendations</span>
+										<br><br>
+										<span>Comments</span>
+										<br>
+										{{tc.selectedAttachment.attachment.data.review}}
+									</div>
+								</div>
+								<div class="application-form" ng-show="tc.selectedAttachment.display === 'Decision'">
+									<div>
+										<span>Director {{tc.selectedAttachment.attachment.data.decision === 'true' ? 'Accepted' : 'Rejected'}} the application</span>
 									</div>
 								</div>
 							</div>

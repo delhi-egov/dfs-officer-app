@@ -13,7 +13,7 @@ var userController = require("./controllers/user_controller");
 var loginController = require("./controllers/login_controller");
 var dashboardController = require("./controllers/dashboard_controller");
 var taskController = require("./controllers/task_controller");
-var scrutinyController = require("./controllers/scrutiny_controller");
+var formController = require("./controllers/form_controller");
 var applicationController = require("./controllers/application_controller");
 
 var app = angular.module("app", ['ui.router', 'ngFileUpload', 'uiRouterStyles', 'blockUI', angularUtilsPagination]);
@@ -28,12 +28,33 @@ app.filter('attachmentFilter', function() {
 	return function(input, taskType) {
 		var out = {};
 		angular.forEach(input, function(value, key) {
-			if(taskType === 'scrutiny') {
-				if(key !== 'ALC Report') {
+			if(taskType === 'Building_Inspection') {
+				if(key !== 'Inspection Details') {
+					out[key] = value;
+				}
+			}
+			else if(taskType === 'Recommendations-submission-by-Assistant-Divisional-Officer') {
+				if(key !== 'Recommendations') {
+					out[key] = value;
+				}
+			}
+			else if(taskType === 'Review-by-Divisional-Officer') {
+				if(key !== 'Divisional Officer Review') {
+					out[key] = value;
+				}
+			}
+			else if(taskType === 'Review-by-Deputy-Chief-Fire-Officer') {
+				if(key !== 'Deputy Chief Fire Officer Review') {
+					out[key] = value;
+				}
+			}
+			else if(taskType === 'Decision-on-application-by-Director') {
+				if(key !== 'Decision') {
 					out[key] = value;
 				}
 			}
 		});
+		return out;
 	}
 });
 
@@ -55,7 +76,7 @@ app.controller("loginController", ['userService', loginController]);
 app.controller("taskController", ['$scope', '$state', '$sce', 'taskService', 'userService', 'taskInfo', 'authInfo', taskController]);
 app.controller("applicationController", ['$scope', '$state', '$sce', 'applicationService', 'userService', 'applicationInfo', 'authInfo', applicationController]);
 app.controller("dashboardController", ['userService', 'taskService', 'applicationService', 'authInfo', '$state', '$scope', '$timeout', dashboardController]);
-app.controller("scrutinyController", ['taskService', 'taskInfo', scrutinyController]);
+app.controller("formController", ['$state', 'taskService', 'taskInfo', formController]);
 
 //Configuration
 app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {

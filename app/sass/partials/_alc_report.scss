@@ -2,11 +2,10 @@
 	@include clearfix;
 	background-color: white;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	// border-radius: 5px;
 	padding: 20px;
 	margin-top: 30px;
 
-	h5 {
+	h4 {
 		padding-left: 25px;
 	}
 
@@ -14,6 +13,7 @@
 		width: 100%;
 		height: 200px;
 		font-size: 14px;
+		margin-bottom: 10px;
 	}
 
 	hr {
@@ -31,5 +31,31 @@
 
 	small {
 		float: left;
+		color: red;
+	}
+
+	label:after {
+		content: "";
+	}
+
+	input {
+		display: block;
+		border-style: none;
+		border-bottom-style: solid;
+		border-bottom-color: #d0d0d0;
+		margin-bottom: 25px;
+		margin-top: 5px;
+		font-size: 14px;
+		color: #000000;
+	}
+
+	select {
+		border-style: none;
+		border-bottom-style: solid;
+		border-bottom-color: #d0d0d0;
+		margin-bottom: 25px;
+		margin-top: 5px;
+		font-size: 14px;
+		color: #000000;
 	}
 }

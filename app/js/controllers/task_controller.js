@@ -31,6 +31,7 @@ module.exports = function($scope, $state, $sce, taskService, userService, taskIn
         taskService.completeTask(this).then(function(response) {
             that.task = taskInfo.task;
             $scope.$apply();
+            $state.go('dashboard');
         });
     };
     this.claimTask = function() {

@@ -1,0 +1,11 @@
+<div class="alc-report">
+	<h4>Decision</h4>
+	<hr>
+	<label for="decision">Grant Fire Safety Certificate?</label>
+	<select id="decision" ng-model="fc.forms['Decision'].decision">
+		<option value="true">Accept</option>
+		<option value="false">Reject</option>
+	</select>
+	<small>{{formPostError}}</small>
+	<button type="submit" ng-click="fc.saveForm('Decision')">Save</button>
+</div>
