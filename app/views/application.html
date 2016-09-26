@@ -13,7 +13,7 @@
 				<input type="checkbox" id="dd">
 				<label for="dd">
 					<img src="app/images/profile.svg" class="profile">
-					<h5>{{tc.user.firstName + ' ' + tc.user.lastName}}</h5>
+					<h5>{{ac.user.firstName + ' ' + ac.user.lastName}}</h5>
 					<img src="app/images/down.svg" class="dropdown-icon">
 				</label>
 				<div class="drop-box">
@@ -24,7 +24,7 @@
 						</li>
 						<li>
 							<img src="app/images/logout.svg" class="drop-icon">
-							<span ng-click="dc.logout()">Logout</span>
+							<span ng-click="ac.logout()">Logout</span>
 						</li>
 					</ul>
 				</div>
@@ -72,7 +72,7 @@
 								<div class="image" ng-show="ac.selectedAttachment.display === 'image'">
 									<img ng-src="{{ac.selectedAttachment.url}}">
 								</div>
-								<div class="application-form" ng-show="ac.selectedAttachment.display === 'Form-I'">
+								<div class="application-form" ng-show="ac.selectedAttachment.display === 'Form I'">
 									<div class="form form-i">
 										<section class="letter-heading">
 											<h4>FORM 'I': APPLICATION FOR GRANT OF FIRE SAFETY CERTIFICATE</h4>
@@ -128,6 +128,41 @@
 												Mobile No. <input type="tel" class="mobile" ng-model="ac.selectedAttachment.attachment.mobile" disabled><br>
 											</section>
 										</section>
+									</div>
+								</div>
+								<div class="application-form" ng-show="ac.selectedAttachment.display === 'Inspection Details'">
+									<div>
+										<span>Date of Inspection: </span> {{ac.selectedAttachment.attachment.data.date}}
+										<br><br>
+										<span>Officers: </span> {{ac.selectedAttachment.attachment.data.officers}}
+									</div>
+								</div>
+								<div class="application-form" ng-show="ac.selectedAttachment.display === 'Recommendations'">
+									<div>
+										{{ac.selectedAttachment.attachment.data.data}}
+									</div>
+								</div>
+								<div class="application-form" ng-show="ac.selectedAttachment.display === 'Divisional Officer Review'">
+									<div>
+										<span>Divisional Officer {{ac.selectedAttachment.attachment.data.decision === 'true' ? 'Accepted' : 'Rejected'}} the recommendations</span>
+										<br><br>
+										<span>Comments</span>
+										<br>
+										{{ac.selectedAttachment.attachment.data.review}}
+									</div>
+								</div>
+								<div class="application-form" ng-show="ac.selectedAttachment.display === 'Deputy Chief Fire Officer Review'">
+									<div>
+										<span>Deputy Chief Fire Officer {{ac.selectedAttachment.attachment.data.decision === 'true' ? 'Accepted' : 'Rejected'}} the recommendations</span>
+										<br><br>
+										<span>Comments</span>
+										<br>
+										{{ac.selectedAttachment.attachment.data.review}}
+									</div>
+								</div>
+								<div class="application-form" ng-show="ac.selectedAttachment.display === 'Decision'">
+									<div>
+										<span>Director {{ac.selectedAttachment.attachment.data.decision === 'true' ? 'Accepted' : 'Rejected'}} the application</span>
 									</div>
 								</div>
 							</div>

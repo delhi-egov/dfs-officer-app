@@ -7,6 +7,9 @@
 
 	h4 {
 		padding-left: 25px;
+		background-image: url(../../app/images/icon1.svg);
+		background-repeat: no-repeat;
+		background-position: 0px 50%;
 	}
 
 	textarea {
@@ -26,7 +29,8 @@
 		background-color: #00c459;
 		float: right;
 		border-style: none;
-		padding: 5px 10px;
+		padding: 5px 20px;
+		font-weight: 300;
 	}
 
 	small {

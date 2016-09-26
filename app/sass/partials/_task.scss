@@ -7,6 +7,10 @@ html, body {
 	max-height: 100%;
 }
 
+h4 {
+	font-size: 16px;
+}
+
 // Custom styles
 
 $susy2: (
@@ -87,12 +91,11 @@ $susy2: (
 		.display {
 			background-color: white;
 			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-			// border-radius: 5px;
 			padding: 20px;
 		}
 
 		.display-title {
-			background-image: url(../app/images/icon1.svg);
+			background-image: url(../../app/images/icon1.svg);
 			background-repeat: no-repeat;
 			background-position: 0px 50%;
 			padding-left: 25px;
@@ -109,6 +112,7 @@ $susy2: (
 					width: 360px;
 					margin: 0 auto;
 					vertical-align: middle;
+					margin-bottom: 20px;
 				}
 			}
 
@@ -163,14 +167,6 @@ $susy2: (
 				font-size: 14px;
 			}
 
-			// .claim {
-			// 	margin-top: 20px;
-			// }
-
-			// .complete {
-			// 	margin-bottom: 20px;
-			// }
-
 		}
 
 		.notes {
@@ -195,7 +191,7 @@ $susy2: (
 				margin-right: 10px;
 				margin-bottom: 10px;
 				border-style: none;
-				padding: 5px 10px;
+				padding: 5px 20px;
 			}
 		}
 	}

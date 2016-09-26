@@ -1,6 +1,9 @@
 module.exports = function($scope, $state, $sce, taskService, userService, taskInfo, authInfo) {
     var that = this;
     this.selectedAttachment = {};
+    this.logout = function() {
+        userService.logout(this);
+    };
     this.selectForm = function(formName, form) {
         this.selectedAttachment.name = formName;
         this.selectedAttachment.attachment = form;

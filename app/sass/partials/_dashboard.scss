@@ -154,6 +154,7 @@ $susy2: (
 			border-style: solid;
 			border-radius: 1px;
 			border-color: black;
+			width: 100%;
 
 			&:nth-child(odd) {
 				background-color: #efefef;
@@ -167,6 +168,7 @@ $susy2: (
 		thead {
 			color: white;
 			margin-bottom: 10px;
+			width: 100%;
 		}
 
 		th {
