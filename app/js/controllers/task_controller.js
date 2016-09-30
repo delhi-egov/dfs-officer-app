@@ -18,7 +18,7 @@ module.exports = function($scope, $state, $sce, taskService, userService, taskIn
         }
         else if(document.endsWith('pdf') || document.endsWith('doc') || document.endsWith('docx') || document.endsWith('txt')) {
             this.selectedAttachment.display = 'doc';
-            this.selectedAttachment.url = $sce.trustAsResourceUrl('https://docs.google.com/viewer?embedded=true&url=http://localhost/api/file/' + document);
+            this.selectedAttachment.url = $sce.trustAsResourceUrl('https://docs.google.com/viewer?embedded=true&url=http://intapp.tk/api/file/' + document);
         }
         else {
             this.selectedAttachment.display = 'unknown';
